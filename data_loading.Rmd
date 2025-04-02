@@ -1,0 +1,35 @@
+---
+title: "data_loading"
+output: html_document
+---
+
+```{r}
+library(MotrpacRatTraining6mo)
+library(MotrpacRatTraining6moData)
+```
+
+```{r}
+tissues <- c("BAT", "BLOOD", "LIVER", "HEART", "WAT-SC", "SKM-GN", "HYPOTH")
+assays <- c("ATAC", "TRNSCRPT", "METHYL")
+```
+
+```{r}
+# for tissue in tissues, load data
+for (assay in assays) {
+  print(paste0("Loading data for assay: ", assay))
+  for (tissue in tissues) {
+    print(paste0("Loading data for tissue: ", tissue))
+    # Load data
+    data <- load_sample_data(tissue, assay)
+    # Export to CSV
+    write.csv(data, file = paste0("data/", tissue, "_", assay, "_data.csv"))
+  }
+  # Load feature annotation
+  feature_annotation <- load_feature_annotation(assay)
+  write.csv(feature_annotation, file = paste0("data/", assay, "_feature_annotation.csv"))
+}
+
+
+write.csv(FEATURE_TO_GENE, file = "data/FEATURE_TO_GENE.csv")
+```
+
