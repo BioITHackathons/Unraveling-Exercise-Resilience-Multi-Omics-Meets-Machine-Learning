@@ -6,7 +6,11 @@ This repository contains the code and data for the hackathon project "Unraveling
 Machine Learning". The project aims to evaluate the readiness of MoTrPAC data for machine learning, and explore the
 relationship between exercise and various omics data using machine learning techniques.
 
-Since we weren't sure what ML experiment would prove successful, we decided to begin with a number of ideas.
+The key challenge was determining which machine learning approach would be most effective given the dataset's complexity, including time-series omics measurements, sex-specific responses, and physiological outcomes.
+
+Why we want to solve this problem:
+
+Understanding how molecular changes (e.g., gene expression, protein levels) relate to exercise-induced physiological adaptations (e.g., fat loss, VO₂max improvement) could bridge the gap between omics data and whole-body health. Successfully modeling these relationships could help predict exercise benefits and inform personalized training strategies.
 
 These ideas were:
 
