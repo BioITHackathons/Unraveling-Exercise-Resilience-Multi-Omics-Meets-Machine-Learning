@@ -6,6 +6,7 @@ output: html_document
 ```{r}
 library(MotrpacRatTraining6mo)
 library(MotrpacRatTraining6moData)
+options(scipen=500)
 ```
 
 ```{r}
@@ -24,6 +25,9 @@ for (assay in assays) {
     # Export to CSV
     write.csv(data, file = paste0("data/", tissue, "_", assay, "_data.csv"))
   }
+}
+
+for (assay in assays) {
   # Load feature annotation
   feature_annotation <- load_feature_annotation(assay)
   write.csv(feature_annotation, file = paste0("data/", assay, "_feature_annotation.csv"))
@@ -32,4 +36,7 @@ for (assay in assays) {
 
 write.csv(FEATURE_TO_GENE, file = "data/FEATURE_TO_GENE.csv")
 ```
+```{r}
+write.csv(TRAINING_REGULATED_NORM_DATA, file = "data/TRAINING_REGULATED_NORM_DATA.csv")
 
+```
